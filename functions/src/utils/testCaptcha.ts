@@ -1,3 +1,5 @@
+import fetch from 'node-fetch'
+
 export default async function testCaptcha(captcha: string): Promise<void> {
 
   // Ping the google recaptcha verify API to verify the captcha code you received
@@ -10,7 +12,7 @@ export default async function testCaptcha(captcha: string): Promise<void> {
       method: "POST",
     }
   );
-  const captchaValidation = await response.json();
+  const captchaValidation: any = await response.json();
 
   /**
    * The structure of response from the veirfy API is
