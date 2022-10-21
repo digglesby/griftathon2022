@@ -26,7 +26,7 @@ async function testCaptcha(captcha: string): Promise<void> {
     }
     */
 
-  if (!captchaValidation.success) {
+  if (captchaValidation.success === false) {
     // Replace this with the API that will save the data received
     // to your backend
 
