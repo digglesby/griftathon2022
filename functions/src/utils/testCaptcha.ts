@@ -3,7 +3,7 @@ import * as request from 'request-promise';
 async function testCaptcha(captcha: string): Promise<void> {
 
   // Ping the google recaptcha verify API to verify the captcha code you received
-  const response = await request(
+  const captchaValidation = await request(
     `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${captcha}`,
     {
       headers: {
@@ -12,7 +12,6 @@ async function testCaptcha(captcha: string): Promise<void> {
       method: "POST",
     }
   );
-  const captchaValidation = await response.json();
 
   /**
    * The structure of response from the veirfy API is
