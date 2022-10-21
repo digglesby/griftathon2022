@@ -1,6 +1,8 @@
-const fetch = require('node-fetch');
+
 
 export default async function testCaptcha(captcha: string): Promise<void> {
+
+  const fetch = require('node-fetch');
 
   // Ping the google recaptcha verify API to verify the captcha code you received
   const response = await fetch(
