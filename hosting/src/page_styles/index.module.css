@@ -1,0 +1,342 @@
+
+.bracketBg {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/Lijian.jpg');
+  background-size: cover;
+  background-position: center;
+  padding-bottom: 7em;
+}
+
+.atf {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/Lijian.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh;
+}
+
+.atf>.img-wrapper {
+  display: flex;
+  flex:4;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4em 1em;
+}
+
+.atf>.img-wrapper>.logo-wrapper {
+  width: 100%;
+  max-width: 750px;
+  position: relative;
+  overflow: hidden;
+  padding-top: 25%;
+}
+
+.atf>.img-wrapper>.logo-wrapper>.logo {
+  width: 100%;
+  z-index: 2;
+  position: relative;
+  margin-bottom: -2%;
+}
+
+.atf>.img-wrapper>.logo-wrapper>.spin {
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+  left: 0%;
+  top: 0%;
+  animation-name: rotate;
+  animation-duration:36s;
+  animation-iteration-count:infinite;
+  animation-timing-function:linear;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.atf>.text-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #f2f0f4;
+  padding: 4em 1em;
+  max-width: 800px;
+  align-self: center;
+  flex: 1;
+  position: relative;
+  z-index: 2;
+}
+
+.atf button, .nomination button {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 36px;
+  border: 0em;
+  border-radius: 0em;
+  background: #cb2323;
+  color: #f2f0f4;
+  cursor: pointer;
+  width: 100%;
+  padding: 0.3em 1em;
+}
+
+.atf>.text-wrapper h1 {
+  font-family: 'Bebas Neue', cursive;
+  margin: 0em;
+  font-size: 60px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.atf>.text-wrapper p {
+  font-family: 'Bebas Neue', cursive;
+  text-transform: uppercase;
+  margin: 0em;
+  font-size: 22px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.atf button {
+  margin-top: 0.5em;
+}
+
+.explainer {
+  box-sizing: border-box;
+  background: #000;
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  padding: 4em 1em;
+  color: #f2f0f4;
+}
+
+.explainer.light {
+  background: #252525;
+}
+
+.explainer h1 {
+  font-family: 'Bebas Neue', cursive;
+  margin: 0em;
+  font-size: 40px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.explainer a {
+  color: #e62d44;
+}
+
+.explainer sub {
+  color:gray;
+}
+
+.explainer aside {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+}
+
+.explainer aside>div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.explainer aside>div>img {
+  color: #f2f0f4;
+}
+
+.explainer aside>div>p {
+  margin-top: 0.2em;
+}
+
+.whatIsGrift {
+  box-sizing: border-box;
+  padding: 3em 1em;
+  background: rgb(239, 239, 239);
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.whatIsGrift h1 {
+  font-family: 'Bebas Neue', cursive;
+  margin: 0em;
+  font-size: 40px;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+
+.whatIsGrift blockquote {
+  padding-left: 1em;
+  border-left: 0.5em solid #cb2323;
+  margin:0em;
+  box-sizing: border-box;
+  width: 100%;
+  padding-bottom: 0.5em;
+}
+
+.whatIsGrift blockquote>h2 {
+  margin: 0em;
+  font-family: 'Libre Baskerville', serif;
+  margin: 0em;
+  font-size: 36px;
+  font-weight: 400;
+}
+
+.whatIsGrift blockquote>p {
+  margin-bottom: 0em;
+  margin-top: 0.2em;
+  font-weight: bold;
+}
+
+.whatIsGrift blockquote>p>span {
+  display: block;
+  font-weight: normal;
+}
+
+.nomination {
+  box-sizing: border-box;
+  width: 100%;
+  background: url('/images/gucci.jpg');
+  background-size: cover;
+  color: #f2f0f4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4em 1em;
+  background-position: center;
+}
+
+.nomination button {
+  margin-top: 2em;
+}
+
+.nomination h1 {
+  font-family: 'Bebas Neue', cursive;
+  margin: 0em;
+  font-size: 40px;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 0.3em;
+}
+
+.atfContainer, .explainerContainer, .whatIsGriftContainer, .nominationContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+@media only screen and (min-width: 550px) and (max-width: 980px) {
+
+  .atf button, .nomination button {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 40px;
+    padding: 0.3em 1em;
+    border: 0em;
+    border-radius: 0em;
+    background: #cb2323;
+    color: #f2f0f4;
+    align-self: center;
+  }
+
+  .explainer, .whatIsGrift, .nomination {
+    padding-top: 6em;
+    padding-bottom: 6em;
+    font-size: 18px;
+  }
+
+  .explainer h1, .whatIsGrift h1, .nomination h1 {
+    font-size: 60px;
+  }
+
+  .atfContainer, .explainerContainer, .whatIsGriftContainer, .nominationContainer {
+    max-width: 600px;
+    align-self: center;
+  }
+
+  .explainer aside {
+    flex-direction: row;
+    padding-top: 5em;
+    padding-bottom: 2em;
+  }
+
+  .explainer aside>div {
+    flex:1;
+  }
+
+  .atf>.text-wrapper h1 {
+    font-size: 70px;
+  }
+  
+  .atf>.text-wrapper p {
+    font-size: 28px;
+  }
+
+  .atf button, .nomination button {
+    width: auto;
+  }
+  
+}
+
+@media only screen and (min-width: 980px) {
+
+  .atf button, .nomination button {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 40px;
+    padding: 0.3em 1em;
+    border: 0em;
+    border-radius: 0em;
+    background: #cb2323;
+    color: #f2f0f4;
+    align-self: center;
+  }
+
+  .explainer, .whatIsGrift, .nomination {
+    padding-top: 6em;
+    padding-bottom: 6em;
+    font-size: 20px;
+    min-height: 60vh;
+    justify-content: center;
+  }
+
+  .explainer h1, .whatIsGrift h1, .nomination h1 {
+    font-size: 70px;
+  }
+
+  .atfContainer, .explainerContainer, .whatIsGriftContainer, .nominationContainer {
+    max-width: 1000px;
+    align-self: center;
+  }
+
+  .explainer aside {
+    flex-direction: row;
+    padding-top: 5em;
+    padding-bottom: 2em;
+  }
+
+  .explainer aside>div {
+    flex:1;
+  }
+
+  .atf>.img-wrapper>.logo-wrapper {
+    padding-top: 200px;
+  }
+  
+  .atf>.text-wrapper h1 {
+    font-size: 100px;
+  }
+  
+  .atf>.text-wrapper p {
+    font-size: 40px;
+  }
+
+  .atf button, .nomination button {
+    width: auto;
+  }
+}

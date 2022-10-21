@@ -1,0 +1,144 @@
+name: Test and Deploy to Firebase Functions
+
+# Controls when the workflow will run
+'on':
+  #triggers the workflow whenever a push is made to the main branch
+  push:
+    branches:
+      - main
+      - feature/ci-testing-setup
+
+jobs:
+  install-dependencies:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checking out
+        uses: actions/checkout@v3
+
+      - name: Setting-up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Installing dependencies
+        run: |
+          cd functions
+          yarn install --frozen-lockfile
+
+      - name: Create .test.env
+        run: |
+          cd functions
+          touch .test.env
+          echo RECAPTCHA_SECRET_KEY=${{ secrets.RECAPTCHA_SECRET_KEY }} >> .test.env
+          echo FIREBASE_PROJ=${{ secrets.TEST_FIREBASE_PROJ }} >> .test.env
+          echo FIRESTORE_EMULATOR_HOST=localhost:8080 >> .test.env
+          echo FIREBASE_STORAGE_EMULATOR_HOST=localhost:9199 >> .test.env
+          echo FIREBASE_AUTH_EMULATOR_HOST=localhost:9099 >> .test.env
+
+      - name: Create .env
+        run: |
+          cd functions
+          touch .env
+          echo RECAPTCHA_SECRET_KEY=${{ secrets.RECAPTCHA_SECRET_KEY }} >> .env
+          echo FIREBASE_PROJ=${{ secrets.PROD_FIREBASE_PROJ }} >> .env
+
+      - name: Build project
+        run: |
+          cd functions
+          npm run build
+
+      - name: Save build
+        uses: actions/cache@v3
+        id: restore-build
+        with:
+          path: ./*
+          key: ${{ github.sha }}-build-project
+
+  # run-tests:
+  #   needs: install-dependencies
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checking out
+  #       uses: actions/checkout@v3
+
+  #     - name: Setting-up Node.js
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version: '16'
+
+  #     - name: Setting-up JAVA
+  #       uses: actions/setup-java@v3
+  #       with: 
+  #         distribution: 'temurin'
+  #         java-version: "18.x"
+
+  #     - name: Setting-up Firebase
+  #       run: |
+  #         cd functions
+  #         yarn install --frozen-lockfile
+  #         npm install -g firebase-tools
+
+  #     - name: Load build
+  #       uses: actions/cache@v3
+  #       id: restore-build
+  #       with:
+  #         path: ./*
+  #         key: ${{ github.sha }}-build-project
+
+  #     - name: Run tests
+  #       run: |
+  #         cd functions
+  #         npm run test-ci
+
+  #     - name: Archive report.txt
+  #       uses: actions/upload-artifact@v3
+  #       if: always()
+  #       with:
+  #         name: test-report
+  #         path: ./functions/report.txt
+
+  deploy-to-firebase:
+    needs: [install-dependencies]
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checking out
+        uses: actions/checkout@v3
+
+      - name: Setting-up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Setting-up Firebase
+        run: |
+          cd functions
+          yarn install --frozen-lockfile
+          npm install -g firebase-tools
+
+      - name: Load build
+        uses: actions/cache@v3
+        id: restore-build
+        with:
+          path: ./*
+          key: ${{ github.sha }}-build-project
+
+      - name: Clear .env
+        run: |
+          cd functions
+          rm .test.env
+          rm .env
+
+      - name: deploy functions to production
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy -f --only functions --message \"${{ github.event.head_commit.message }} -functions\"
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+
+      - name: deploy environment to production
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy -f --only firestore,storage --message \"${{ github.event.head_commit.message }} -environment\"
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

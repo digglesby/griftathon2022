@@ -1,0 +1,312 @@
+.votingSection {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: linear-gradient(90deg, rgba(157,83,83,0.75) 0%, rgba(157,83,83,0.75) 50%, rgba(69,71,129,0.75) 50%, rgba(69,71,129,0.75) 100%);
+}
+
+.votingSection>.candidates {
+  display: flex;
+  align-self: stretch;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  height: 350px;
+}
+
+.votingSection>.candidates>.candidate {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  border: 0em;
+  justify-content: flex-start;
+  align-items: center;
+  color: #f2f0f4;
+  background: transparent;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  align-self: stretch;
+  margin-right: -20px;
+  clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 100%, 0% 100%);
+  background-color: #9d5353;
+}
+
+.votingSection>.candidates>.candidate:nth-child(2) {
+  background-color: #454781;
+  margin-right: 0px;
+  margin-left: -20px;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 40px 100%);
+}
+
+.img-container {
+  position: absolute;
+  top:0px;
+  right: 0px;
+  bottom: 0px;
+  height: 100%;
+  z-index: 1;
+}
+
+.img-container>.img-content {
+  height: 100%;
+  position: relative;
+}
+
+.img-container>.img-content>img {
+  height: 100%;
+}
+
+.img-container>.img-content>.image-overlay {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background: linear-gradient(90deg, rgba(157,83,83,1) 0%, rgba(157,83,83,0) 90%);
+}
+
+.candidates>.candidate:nth-child(2)>.img-container>.img-content>.image-overlay {
+  background: linear-gradient(90deg, rgba(69,71,129,0) 10%, rgba(69,71,129,1) 100%);
+}
+
+.votingSection>.candidates>.candidate:nth-child(2)>.img-container {
+  right: auto;
+  left: 0px;
+}
+
+.votingSection>.resultsBar {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(90deg, rgba(118, 35, 35, 1) 0%, rgba(118, 35, 35, 1) 50%, rgba(41, 41, 106, 1) 50%, rgba(41, 41, 106, 1) 100%);
+}
+
+.votingSection>.resultsBar>.resultsBarContainer{
+  max-width: 1980px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.votingSection>.resultsBar>.resultsBarContainer>.bar1{
+  background-color: rgb(118, 35, 35);
+  height: 100%;
+  overflow: visible;
+  display: flex;
+  align-items: flex-start;
+  flex:1;
+  flex-direction: column;
+}
+
+.votingSection>.resultsBar>.resultsBarContainer>.bar2{
+  background-color: rgb(41, 41, 106);
+  height: 100%;
+  overflow: visible;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+.votingSection>.resultsBar>.resultsBarContainer>.bar2>h4, .votingSection>.resultsBar>.resultsBarContainer>.bar1>h4{
+  padding: 0.3em 1em;
+  margin: 0em;
+  color: #f2f0f4;
+  font-size: 26px;
+  font-family: 'Bebas Neue', cursive;
+  font-weight: 400;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 4px;
+}
+
+.votingSection>.resultsBar>.resultsBarContainer>.bar1>h4 {
+  text-align: right;
+}
+
+
+.votingSection>.candidates>.candidate>.shortInfo {
+  flex-direction: row;
+  display: flex;
+  align-self: stretch;
+  z-index: 2;
+  width: 65%;
+  align-self: flex-start;
+}
+
+.votingSection>.candidates>.candidate:nth-child(2)>.shortInfo {
+  align-self: flex-end;
+}
+
+.votingSection>.candidates>.candidate>.shortInfo>h2{
+  margin: 0em;
+  font-family: 'Bebas Neue', cursive;
+  font-weight: 400;
+  font-size: 40px;
+  padding: 0em 0.4em;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-self: center;
+}
+
+.votingSection>.candidates>.candidate>.shortInfo>p{
+  color: rgba(255,255,255,0.5);
+  display: block;
+  width:3em;
+  text-align: center;
+  margin: 0em;
+  align-self: center;
+}
+
+.votingSection>.candidates>.candidate>.additionalInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  display: none;
+  align-self: stretch;
+  flex:1;
+  z-index: 2;
+  width: 65%;
+  align-self: flex-start;
+}
+
+.votingSection>.candidates>.candidate:nth-child(2)>.additionalInfo {
+  align-self: flex-end;
+}
+
+.votingSection>.candidates>.candidate>.additionalInfo>p {
+  margin: 0.5em 0.5em;
+  font-size: 16px;
+  text-align: left;
+  line-height: 1.6em;
+  flex:1;
+}
+
+.votingSection>.candidates>.candidate>.additionalInfo>ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  margin: 0.5em 0em;
+  padding: 0em;
+  margin-bottom: 1em;
+}
+
+.votingSection>.candidates>.candidate>.additionalInfo>ul>li {
+  display: flex;
+  flex-direction: column;
+  font-size: 22px;
+  flex: 1;
+  font-family: 'Bebas Neue', cursive;
+  font-weight: 400;
+}
+
+.votingSection>.candidates>.candidate>.additionalInfo>ul>li>span {
+  font-size: 16px;
+  font-family: 'Bebas Neue', cursive;
+  color: rgba(255,255,255,0.5);
+}
+
+@media only screen and (max-width: 550px) {
+
+  .votingSection>.candidates>.candidate {
+    flex:1;
+    margin: 0px;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 20px));
+    margin-bottom: -11px;
+    padding-bottom: calc(1em + 11px);
+  }
+
+  .votingSection>.candidates>.candidate:nth-child(2) {
+    clip-path: polygon(0 0, 100% 20px, 100% 100%, 0 100%);
+    margin-bottom: 0px;
+    margin-top: -10px;
+    padding-top: calc(1em + 10px);;
+    padding-bottom: 0em;
+  }
+
+  .votingSection>.candidates>.candidate>.shortInfo>h2 {
+    font-size: 28px;
+  }
+
+  .votingSection>.candidates>.candidate>.additionalInfo{
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+  }
+
+  .votingSection>.candidates>.candidate>.additionalInfo>p{ 
+    display: none;
+  }
+
+  .votingSection>.candidates>.candidate>.additionalInfo>ul>li:last-child{ 
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 550px) and (max-width: 980px) {
+
+  
+  .votingSection>.candidates {
+    align-items: center;
+    flex-direction: row;
+    height: 200px;
+  }
+
+  .votingSection>.candidates>.candidate {
+    flex: 1;
+  }
+
+  .votingSection>.candidates>.candidate>.shortInfo>p{
+    display: none;
+  }
+
+  
+  .votingSection>.candidates>.candidate>.additionalInfo{
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+  }
+
+  .votingSection>.candidates>.candidate>.additionalInfo>p{ 
+    display: none;
+  }
+
+  .votingSection>.candidates>.candidate>.additionalInfo>ul>li:last-child{ 
+    display: none;
+  }
+}
+
+
+@media only screen and (min-width: 980px) {
+
+
+  .votingSection>.candidates {
+    align-items: center;
+    flex-direction: row;
+    max-width: 1980px;
+    width:100%;
+    margin: 0px auto;
+    
+  }
+
+  .votingSection>.candidates>.versus {
+    margin: 0em 1em;
+  }
+
+  .votingSection>.candidates>.candidate {
+    flex: 1;
+    padding-top: 2em;
+    padding-bottom: 2em;
+  }
+
+  .votingSection>.candidates>.candidate>.shortInfo>p{
+    display: none;
+  }
+
+  .votingSection>.candidates>.candidate>.additionalInfo{
+    display: flex;
+  }
+  
+}

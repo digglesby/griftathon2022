@@ -1,0 +1,198 @@
+
+.bracketTree {
+  scroll-snap-type: x mandatory;
+
+  overflow-x: scroll;
+  overflow-y: hidden;
+
+  display: flex;
+  align-items: center;
+
+  align-items: stretch;
+  min-height: 95vh;
+
+  padding-left: 40px;
+  padding-right: 40px;
+  box-sizing: border-box;
+
+  /* Enable Safari touch scrolling physics which is needed for scroll snap */
+  -webkit-overflow-scrolling: touch;
+
+  padding-top: 0em;
+}
+
+.bracketTree>article {
+  /* snap align center  */
+  scroll-snap-align: center;
+  min-width: 80vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.bracketTree>article>header {
+  padding: 0px 10px;
+}
+
+/* .bracketTree>article:first-child>div, .bracketTree>article:first-child>header {
+  padding-left: 10%;
+}
+
+.bracketTree>article:last-child>div, .bracketTree>article:last-child>header {
+  padding-left: 10%;
+} */
+
+.bracketTree>article>header>h2 {
+  font-family: 'Bebas Neue', cursive;
+  margin: 0em;
+  font-size: 40px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.bracketTree>article>div {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  position: relative;
+}
+
+.bracketTree>article>header {
+  color: #f2f0f4;
+  border-radius: 0.5em;
+}
+
+.bracketTree>.connections>header, .bracketTree>article>header {
+  height:3em;
+}
+
+.bracketTree>.connections {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  flex-basis: 40px;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.bracketTree>.connections>div {
+  display: flex;
+  flex:1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+}
+
+.bracketTree>.connections>div>div {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  height: 50%;
+}
+
+.bracketTree>.connections>div>div>.fakeBox {
+  position: absolute;
+  top: -1px;
+  width: 100%;
+  height: calc(100% + 2px);
+  box-sizing: border-box;
+  border: 2px solid #49535e;
+}
+
+.bracketTree>.connections>div>div>.line {
+  height:2px;
+  background-color: #49535e;
+  position: absolute;
+  right: -50%;
+  width: 100%;
+  top: calc(50% - 1px);
+}
+
+.bracketTree>.connections>.bracketLeft>div>.fakeBox {
+  left: -50%;
+  border-left: none;
+}
+
+.bracketTree>.connections>.bracketLeft>div>.line {
+  right: -50%;
+}
+
+.bracketTree>.connections>.bracketRight>div>.fakeBox {
+  right: -50%;
+  border-right: none;
+}
+
+.bracketTree>.connections>.bracketRight>div>.line {
+  left: -50%;
+}
+
+.bracketTree>.connections>.finalLine>div>.line {
+  width: 200%;
+  left:-50%;
+  right: 150%;
+}
+
+
+@media only screen and (min-width: 550px) and (max-width: 980px) {
+
+  
+  .bracketTree {
+    min-height: 50vh;
+  }
+
+  .bracketTree>article {
+    /* snap align center  */
+    min-width: 40vw;
+  }
+
+  .bracketTree>.connections {
+    width: 40px;
+  }
+
+}
+
+
+@media only screen and (min-width: 980px) and (max-width: 1980px) {
+
+  
+  .bracketTree {
+    min-height: 600px;
+    height: 50vh;
+  }
+
+  .bracketTree>article {
+    /* snap align center  */
+    min-width: 20vw;
+  }
+
+  .bracketTree>.connections {
+    width: 40px;
+  }
+
+}
+
+@media only screen and (min-width: 1980px) {
+  .bracketTree {
+    min-height: 600px;
+    height: 50vh;
+    overflow: hidden;
+    width: 100%;
+    max-width: 1980px;
+    margin: 0px auto;
+    padding: 0em;
+  }
+
+  .bracketTree>article {
+    /* snap align center  */
+    min-width: 0em;
+    flex:6;
+  }
+
+  .bracketTree>.connections {
+    width: 40px;
+  }
+}
