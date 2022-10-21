@@ -25,7 +25,8 @@ export default async function testCaptcha(captcha: string): Promise<void> {
   if (!captchaValidation.success) {
     // Replace this with the API that will save the data received
     // to your backend
-    throw new Error("Invalid captcha")
+
+    throw new Error(captchaValidation)
   }
 
 }

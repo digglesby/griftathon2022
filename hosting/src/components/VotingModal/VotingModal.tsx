@@ -85,7 +85,7 @@ const NominationModal = (props: Props) => {
 
   if (!submitted){
     return (
-      <button className={styles.background} onClick={onClose}>
+      <div className={styles.background} onClick={onClose}>
         <aside className={styles.modal} onClick={(e) => e.stopPropagation()} onScroll={(e) => e.stopPropagation()}>
 
           <form onSubmit={onSubmit}>
@@ -108,11 +108,11 @@ const NominationModal = (props: Props) => {
             <button type="submit">Vote</button>
           </form>
         </aside>
-      </button>
+      </div>
     );
   } else {
     return (
-      <button className={styles.background} onClick={onClose}>
+      <div className={styles.background} onClick={onClose}>
         <aside className={styles.modal} onClick={(e) => e.stopPropagation()} onScroll={(e) => e.stopPropagation()}>
 
           <div>
@@ -130,7 +130,7 @@ const NominationModal = (props: Props) => {
             <button onClick={onClose}>Back</button>
           </div>
         </aside>
-      </button>
+      </div>
     );
   }
 }
