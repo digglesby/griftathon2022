@@ -20,9 +20,14 @@ jobs:
         with:
           node-version: '16'
 
-      - name: Installing dependencies
+      - name: Installing function dependencies
         run: |
           cd functions
+          yarn install --frozen-lockfile
+
+      - name: Installing hosting dependencies
+        run: |
+          cd hosting
           yarn install --frozen-lockfile
 
       - name: Create .test.env
@@ -42,10 +47,16 @@ jobs:
           echo RECAPTCHA_SECRET_KEY=${{ secrets.RECAPTCHA_SECRET_KEY }} >> .env
           echo FIREBASE_PROJ=${{ secrets.PROD_FIREBASE_PROJ }} >> .env
 
-      - name: Build project
+      - name: Build functions project
         run: |
           cd functions
           npm run build
+
+      - name: Build hosting project
+        run: |
+          cd functions
+          npm run build
+          npm run export
 
       - name: Save build
         uses: actions/cache@v3
@@ -133,6 +144,13 @@ jobs:
         uses: w9jds/firebase-action@master
         with:
           args: deploy -f --only functions --message \"${{ github.event.head_commit.message }} -functions\"
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+
+      - name: deploy hosting to production
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy -f --only hosting --message \"${{ github.event.head_commit.message }}"
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 

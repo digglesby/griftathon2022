@@ -1,8 +1,6 @@
 import { db } from '../firebase/admin';
 import { logger } from 'firebase-functions/v1';
 import * as functions from "firebase-functions";
-import { Group } from '../firebase/schema';
-import { GeoPoint } from 'firebase-admin/firestore';
 import { Validator } from 'node-input-validator';
 import testCaptcha from '../utils/testCaptcha';
 
@@ -61,7 +59,7 @@ async function nominateCandidate(input: any, context: functions.https.CallableCo
   }
 
   try {
-    
+
     const nomRef = db.collection("nominations").doc();
       
     await nomRef.set({
