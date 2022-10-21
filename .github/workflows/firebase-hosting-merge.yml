@@ -140,6 +140,11 @@ jobs:
           rm .test.env
           rm .env
 
+      -name: Sanity check
+        run: |
+          cd functions
+          cat ./out/index.js
+
       - name: deploy functions to production
         uses: w9jds/firebase-action@master
         with:
