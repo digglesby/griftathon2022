@@ -3,7 +3,7 @@ import * as admin from 'firebase-admin';
 
 //Quick and dirty hack to get around .env files 
 //not being loaded on storage cloud functions
-const projectName = (process.env["FIREBASE_PROJ"]) ? process.env["FIREBASE_PROJ"] : 'prox-b75e7';
+const projectName = 'griftathon';
 
 const app = admin.initializeApp({
   projectId: projectName,
