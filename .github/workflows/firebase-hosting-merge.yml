@@ -58,6 +58,11 @@ jobs:
           npm run build
           npm run export
 
+      - name: Sanity check
+        run: |
+          cd functions
+          ls -a
+
       - name: Save build
         uses: actions/cache@v3
         id: restore-build
