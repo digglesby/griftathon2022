@@ -1,11 +1,9 @@
+import * as request from 'request-promise';
 
-
-export default async function testCaptcha(captcha: string): Promise<void> {
-
-  const fetch = require('node-fetch');
+async function testCaptcha(captcha: string): Promise<void> {
 
   // Ping the google recaptcha verify API to verify the captcha code you received
-  const response = await fetch(
+  const response = await request(
     `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${captcha}`,
     {
       headers: {
@@ -14,7 +12,7 @@ export default async function testCaptcha(captcha: string): Promise<void> {
       method: "POST",
     }
   );
-  const captchaValidation: any = await response.json();
+  const captchaValidation = await response.json();
 
   /**
    * The structure of response from the veirfy API is
@@ -34,3 +32,5 @@ export default async function testCaptcha(captcha: string): Promise<void> {
   }
 
 }
+
+export default testCaptcha;
