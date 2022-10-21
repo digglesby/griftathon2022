@@ -58,11 +58,6 @@ jobs:
           npm run build
           npm run export
 
-      - name: Sanity check
-        run: |
-          cd functions
-          ls -a
-
       - name: Save build
         uses: actions/cache@v3
         id: restore-build
@@ -144,11 +139,6 @@ jobs:
           cd functions
           rm .test.env
           rm .env
-
-      - name: Sanity check
-        run: |
-          cd functions
-          ls -a
 
       - name: deploy functions to production
         uses: w9jds/firebase-action@master
