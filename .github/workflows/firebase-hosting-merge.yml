@@ -45,7 +45,7 @@ jobs:
           cd functions
           touch .env
           echo RECAPTCHA_SECRET_KEY=${{ secrets.RECAPTCHA_SECRET_KEY }} >> .env
-          echo FIREBASE_PROJ=${{ secrets.PROD_FIREBASE_PROJ }} >> .env
+        # echo FIREBASE_PROJ=${{ secrets.PROD_FIREBASE_PROJ }} >> .env
 
       - name: Build functions project
         run: |
