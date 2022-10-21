@@ -1,3 +1,4 @@
+import { logger } from 'firebase-functions/v1';
 import * as request from 'request-promise';
 
 async function testCaptcha(captcha: string): Promise<void> {
@@ -12,6 +13,8 @@ async function testCaptcha(captcha: string): Promise<void> {
       method: "POST",
     }
   );
+
+  logger.log(`CAPTCHA KEY: ${process.env.RECAPTCHA_SECRET_KEY}`)
 
   /**
    * The structure of response from the veirfy API is

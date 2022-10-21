@@ -138,7 +138,7 @@ jobs:
         run: |
           cd functions
           rm .test.env
-          rm .env
+        # rm .env
 
       - name: deploy functions to production
         uses: w9jds/firebase-action@master
@@ -154,9 +154,9 @@ jobs:
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
-      - name: deploy environment to production
-        uses: w9jds/firebase-action@master
-        with:
-          args: deploy -f --only firestore,storage --message \"${{ github.event.head_commit.message }} -environment\"
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      # - name: deploy environment to production
+      #   uses: w9jds/firebase-action@master
+      #   with:
+      #     args: deploy -f --only firestore,storage --message \"${{ github.event.head_commit.message }} -environment\"
+      #   env:
+      #     FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
