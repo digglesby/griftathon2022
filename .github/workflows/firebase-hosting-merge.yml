@@ -54,7 +54,7 @@ jobs:
 
       - name: Build hosting project
         run: |
-          cd functions
+          cd hosting
           npm run build
           npm run export
 
