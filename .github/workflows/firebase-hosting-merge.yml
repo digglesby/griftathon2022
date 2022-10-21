@@ -140,7 +140,7 @@ jobs:
           rm .test.env
           rm .env
 
-      -name: Sanity check
+      - name: Sanity check
         run: |
           cd functions
           cat ./out/index.js
