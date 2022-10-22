@@ -12,7 +12,7 @@ async function archiveOldChatRooms(context: functions.EventContext) {
 
   const currentTime = new Date(context.timestamp);
   //const votingTime = 1000 * 60 * 60 * 24;
-  const votingTime = 1000 * 60 * 5;
+  const votingTime = 1000 * 60 * 1;
 
   const matchOrder = [
     MATCHES.FIRST_ROUND_1,
@@ -136,6 +136,18 @@ async function archiveOldChatRooms(context: functions.EventContext) {
           }
         }
 
+        const newMatch = {
+          contestant1: newLineup[matchOrder[nextMatchIndex]].contestant1,
+          contestant1TwitterVotes: 0,
+          contestant1WebsiteVotes: 0,
+          contestant2: newLineup[matchOrder[nextMatchIndex]].contestant2,
+          contestant2TwitterVotes: 0,
+          contestant2WebsiteVotes: 0
+        }
+
+        const matchRef = db.collection("matches").doc(matchOrder[nextMatchIndex]);
+        await matchRef.set(newMatch);
+
         const newSiteConf: SiteConfig = {
           mode: SITE_MODE.VOTING,
           lineup: newLineup,
@@ -155,6 +167,18 @@ async function archiveOldChatRooms(context: functions.EventContext) {
   } else if (currentSiteConfig.mode == SITE_MODE.NOMINATION) {
 
     if ((currentSiteConfig.contestants) && (currentSiteConfig.lineup)) {
+
+      const newMatch = {
+        contestant1: currentSiteConfig.lineup[matchOrder[0]].contestant1,
+        contestant1TwitterVotes: 0,
+        contestant1WebsiteVotes: 0,
+        contestant2: currentSiteConfig.lineup[matchOrder[0]].contestant2,
+        contestant2TwitterVotes: 0,
+        contestant2WebsiteVotes: 0
+      }
+
+      const matchRef = db.collection("matches").doc(matchOrder[0]);
+      await matchRef.set(newMatch);
       
       const newSiteConf: SiteConfig = {
         mode: SITE_MODE.VOTING,

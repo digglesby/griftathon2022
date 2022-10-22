@@ -1,0 +1,126 @@
+{
+  "mode":"NOMINATION",
+  "contestants": {
+    "dumb": {
+      "name": "Daniel Dumbrill",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor elementum pharetra.",
+      "image": "/images/headshots/DanielDumbrill.jpg"
+    },
+    "carl": {
+      "name": "Carl Zha",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor elementum pharetra.",
+      "image": "/images/headshots/CarlZha.jpg"
+    },
+    "qiao": {
+      "name": "Qiao Collective",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor elementum pharetra.",
+      "image": "/images/headshots/Qiao.jpg"
+    },
+    "gray": {
+      "name": "The Grayzone",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor elementum pharetra.",
+      "image": "/images/headshots/Grayzone.jpg"
+    },
+    "chan": {
+      "name": "Gordon Chang",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor elementum pharetra.",
+      "image": "/images/headshots/Chang.jpg"
+    },
+    "robe": {
+      "name": "Robert Spalding",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor elementum pharetra.",
+      "image": "/images/headshots/RobertSpalding.jpg"
+    },
+    "kyle": {
+      "name": "Kyle Bass",
+      "descriptioN": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor elementum pharetra.",
+      "image": "/images/headshots/KyleBass.jpg"
+    },
+    "lind": {
+      "name": "Linda Tang",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor elementum pharetra.",
+      "image": "/images/headshots/LindaTang.jpg"
+    },
+    "chin": {
+      "name": "Chin Wan",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor elementum pharetra.",
+      "image": "/images/headshots/ChinWan.jpg"
+    },
+    "mile": {
+      "name": "Miles Guo",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor elementum pharetra.",
+      "image": "/images/headshots/MilesGuo.jpg"
+    },
+    "tomf": {
+      "name": "Tom Fowdy",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor elementum pharetra.",
+      "image": "/images/headshots/TomFowdy.jpg"
+    },
+    "iang": {
+      "name": "Ian Goodrum",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor elementum pharetra.",
+      "image": "/images/headshots/IanGoodrum.jpg"
+    },
+    "solo": {
+      "name": "Solomon Yue",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor elementum pharetra.",
+      "image": "/images/headshots/SolomonYue.jpeg"
+    },
+    "huxi": {
+      "name": "Hu Xijin",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor elementum pharetra.",
+      "image": "/images/headshots/HuXijin.jpeg"
+    },
+    "shau": {
+      "name": "Shaun Rein",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor elementum pharetra.",
+      "image": "/images/headshots/ShaunRein.jpg"
+    },
+    "mari": {
+      "name": "Mario Cavolo",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor elementum pharetra.",
+      "image": "/images/headshots/MarioCavolo.jpg"
+    }
+  },
+  "lineup": {
+    "FIRST_ROUND_1": {
+      "contestant1": "dumb",
+      "contestant2": "carl"
+    }, 
+    "FIRST_ROUND_2": {
+      "contestant1": "qiao",
+      "contestant2": "gray"
+    },
+    "FIRST_ROUND_3": {
+      "contestant1": "chan",
+      "contestant2": "robe"
+    },
+    "FIRST_ROUND_4": {
+      "contestant1": "kyle",
+      "contestant2": "lind"
+    },
+    "FIRST_ROUND_5": {
+      "contestant1": "chin",
+      "contestant2": "mile"
+    },
+    "FIRST_ROUND_6": {
+      "contestant1": "tomf",
+      "contestant2": "iang"
+    },
+    "FIRST_ROUND_7": {
+      "contestant1": "solo",
+      "contestant2": "huxi"
+    },
+    "FIRST_ROUND_8": {
+      "contestant1": "shau",
+      "contestant2": "mari"
+    },
+    "QUARTERFINALS_1": {},
+    "QUARTERFINALS_2": {},
+    "QUARTERFINALS_3": {},
+    "QUARTERFINALS_4": {},
+    "SEMIFINALS_1": {},
+    "SEMIFINALS_2": {},
+    "FINALS": {}
+  }
+}
