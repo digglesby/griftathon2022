@@ -2,6 +2,7 @@ import { db } from '../firebase/admin';
 import * as functions from "firebase-functions";
 import { logger } from 'firebase-functions/v1';
 import { LineupMatch, Match, MATCHES, SiteConfig, SITE_MODE } from '../firebase/schema';
+import sendTweets from '../utils/sendTweets';
 
 
 /**
@@ -136,17 +137,16 @@ async function archiveOldChatRooms(context: functions.EventContext) {
           }
         }
 
-        const newMatch = {
+        const newMatch: Match = {
           contestant1: newLineup[matchOrder[nextMatchIndex]].contestant1,
           contestant1TwitterVotes: 0,
           contestant1WebsiteVotes: 0,
           contestant2: newLineup[matchOrder[nextMatchIndex]].contestant2,
           contestant2TwitterVotes: 0,
           contestant2WebsiteVotes: 0
-        }
+        } as Match;
 
         const matchRef = db.collection("matches").doc(matchOrder[nextMatchIndex]);
-        await matchRef.set(newMatch);
 
         const newSiteConf: SiteConfig = {
           mode: SITE_MODE.VOTING,
@@ -156,6 +156,11 @@ async function archiveOldChatRooms(context: functions.EventContext) {
           contestants: currentSiteConfig.contestants
         }
 
+        const pollTweetID = await sendTweets(newMatch, newSiteConf);
+
+        newMatch.twitterPollId = pollTweetID;
+
+        await matchRef.set(newMatch);
         await confRef.set(newSiteConf)
         
       }
@@ -168,18 +173,16 @@ async function archiveOldChatRooms(context: functions.EventContext) {
 
     if ((currentSiteConfig.contestants) && (currentSiteConfig.lineup)) {
 
-      const newMatch = {
+      const newMatch: Match = {
         contestant1: currentSiteConfig.lineup[matchOrder[0]].contestant1,
         contestant1TwitterVotes: 0,
         contestant1WebsiteVotes: 0,
         contestant2: currentSiteConfig.lineup[matchOrder[0]].contestant2,
         contestant2TwitterVotes: 0,
         contestant2WebsiteVotes: 0
-      }
+      } as Match;
 
-      const matchRef = db.collection("matches").doc(matchOrder[0]);
-      await matchRef.set(newMatch);
-      
+
       const newSiteConf: SiteConfig = {
         mode: SITE_MODE.VOTING,
         current_match: matchOrder[0],
@@ -188,6 +191,12 @@ async function archiveOldChatRooms(context: functions.EventContext) {
         contestants: currentSiteConfig.contestants
       }
 
+      const pollTweetID = await sendTweets(newMatch, newSiteConf);
+
+      newMatch.twitterPollId = pollTweetID;
+
+      const matchRef = db.collection("matches").doc(matchOrder[0]);
+      await matchRef.set(newMatch);
       await confRef.set(newSiteConf)
 
     }

@@ -26,7 +26,9 @@
     "node-fetch": "^3.2.10",
     "node-input-validator": "^4.5.0",
     "request": "^2.88.2",
-    "request-promise": "^4.2.6"
+    "request-promise": "^4.2.6",
+    "sharp": "^0.31.1",
+    "twitter-api-v2": "^1.12.8"
   },
   "devDependencies": {
     "@faker-js/faker": "^7.3.0",
