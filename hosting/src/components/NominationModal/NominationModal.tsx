@@ -31,6 +31,9 @@ const NominationModal = (props: Props) => {
   const onSubmit = async (event) => {
 
     event.preventDefault();
+
+    if (loading) return;
+
     setLoading(true);
     setError("");
 
@@ -107,7 +110,7 @@ const NominationModal = (props: Props) => {
               />
             </div>
 
-            <button type="submit">Submit</button>
+            <button type="submit">{(loading) ? "Loading..." : "Submit"}</button>
           </form>
         </aside>
       </div>

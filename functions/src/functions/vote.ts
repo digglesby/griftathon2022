@@ -124,7 +124,7 @@ async function nominateCandidate(input: any, context: functions.https.CallableCo
 
     if (match.contestant1 == data.candidate) {
       key = "contestant1WebsiteVotes";
-    } else if (match.contestant1 == data.candidate) {
+    } else if (match.contestant2 == data.candidate) {
       key = "contestant2WebsiteVotes";
     } else {
       throw new Error("Invalid candidate!")

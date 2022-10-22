@@ -4,6 +4,7 @@ import styles from './VotingModal.module.css'
 import ReCAPTCHA from "react-google-recaptcha";
 import { Match, SiteConfig, SITE_MODE } from '../../firebase/schema';
 import getFingerprintHash from '../../helpers/getFingerprintHash';
+import vote from '../../firebase/functions/vote';
 
 type Props = {
   onClose: () => void,
@@ -48,6 +49,9 @@ const NominationModal = (props: Props) => {
   const onSubmit = async (event) => {
 
     event.preventDefault();
+
+    if (loading) return;
+
     setLoading(true);
     setError("");
 
@@ -59,7 +63,11 @@ const NominationModal = (props: Props) => {
         throw "Must complete ReCAPTCHA"
       }
 
-      await getFingerprintHash();
+      await vote({
+        uid: await getFingerprintHash(),
+        candidate: candidate,
+        captcha: captchaCode
+      })
 
       localStorage.setItem('submitted', props.match.match);
       localStorage.setItem('votedFor', props.candidate);
@@ -105,7 +113,7 @@ const NominationModal = (props: Props) => {
               />
             </div>
 
-            <button type="submit">Vote</button>
+            <button type="submit">{(loading) ? "Loading..." : "Vote"}</button>
           </form>
         </aside>
       </div>
