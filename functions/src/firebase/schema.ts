@@ -1,5 +1,5 @@
 
-export enum                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         SITE_MODE {
+export enum SITE_MODE {
   VOTING = 'VOTING',
   NOMINATION = 'NOMINATION',
   INFO = 'INFO',

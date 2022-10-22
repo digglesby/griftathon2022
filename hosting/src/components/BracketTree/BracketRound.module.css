@@ -110,6 +110,81 @@
   background-color: #454781;
 }
 
+.winnerPopup {
+  position: absolute;
+  width: 100%;
+  z-index: 4;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.winnerPopup>div {
+  position: relative;
+}
+
+.winnerPopup>div>.spin {
+  position: absolute;
+  width: 200%;
+  z-index: 1;
+  left: -50%;
+  top: -25%;
+  animation-name: rotate;
+  animation-duration:36s;
+  animation-iteration-count:infinite;
+  animation-timing-function:linear;
+  border: none;
+  background: none;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.winnerPopup .pfp{
+  width: 100%;
+  z-index: 2;
+  position: relative;
+  box-sizing: border-box;
+  background: #e62d44;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.winnerPopup .pfp>img {
+  width: 100%;
+}
+
+.winnerPopup h2 {
+  color: #f2f0f4;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 42px;
+  text-align: center;
+  font-weight: 400;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  z-index: 2;
+  position: relative;
+}
+
+.winnerPopup h3 {
+  color: #f2f0f4;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 28px;
+  text-align: center;
+  font-weight: 400;
+  margin-top: 0px;
+  z-index: 2;
+  position: relative;
+}
+
+.winnerPopup h3>span {
+  white-space: nowrap;
+}
+
 
 /* .bracketRound>div>.line {
   height:50%;

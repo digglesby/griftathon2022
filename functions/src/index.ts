@@ -1,5 +1,6 @@
 import * as functions from "firebase-functions";
 import nominateCandidate from "./functions/nominateCandidate";
+import switchMatch from "./functions/switchMatch";
 
 // // Start writing Firebase Functions
 // // https://firebase.google.com/docs/functions/typescript
@@ -12,6 +13,10 @@ import nominateCandidate from "./functions/nominateCandidate";
 const cloudFunctions = {
   nominateCandidate: functions.https
                       .onCall(nominateCandidate),
+  switchMatch:       functions.pubsub
+                      .schedule('*/5 * * * *')
+                      .timeZone('America/New_York')
+                      .onRun(switchMatch),
 }
 
 module.exports = cloudFunctions;

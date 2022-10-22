@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 import { Match, MATCHES,SiteConfig, SITE_MODE } from '../../firebase/schema';
 import BracketRound from './BracketRound';
 import styles from './BracketTree.module.css';
+import WinnerPopup from './WinnerPopup';
 
 type Props = {
   siteConfig: SiteConfig,
@@ -33,10 +34,10 @@ const BracketConnection = (props: { mode: 'bracketLeft' | 'bracketRight' | 'fina
 
 const BracketTree = (props: Props) => {
 
-  if (props.siteConfig.mode != SITE_MODE.VOTING) return null;
+  if ((props.siteConfig.mode != SITE_MODE.VOTING) && (props.siteConfig.mode != SITE_MODE.WINNER)) return null;
 
   const lineup = props.siteConfig.lineup;
-  const currentRound = props.siteConfig.current_match;
+  const currentRound = (props.siteConfig.mode == SITE_MODE.VOTING) ? props.siteConfig.current_match : null;
   const contestants = props.siteConfig.contestants;
 
   const matchKeys = Object.keys(MATCHES);
@@ -54,8 +55,6 @@ const BracketTree = (props: Props) => {
         winner = 2;
       }
     }
-
-    console.log(currentRound)
 
     matchComponents[match] = (
       <BracketRound
@@ -128,6 +127,7 @@ const BracketTree = (props: Props) => {
         </header>
         <div>
           {matchComponents[MATCHES.FINALS]}
+          {(props.siteConfig.mode == SITE_MODE.WINNER) ? <WinnerPopup winner={props.siteConfig.contestants[props.siteConfig.winner]} /> : null}
         </div>
       </article>
 

@@ -14,6 +14,7 @@ type CandidateProps = {
 }
 
 const getActiveCandidates = (siteConfig: SiteConfig): string[] => {
+  if (siteConfig.mode == SITE_MODE.WINNER) return [siteConfig.winner];
   if (siteConfig.mode != SITE_MODE.VOTING) return [];
 
   let activeCandidates = [...Object.keys(siteConfig.contestants)];
@@ -53,7 +54,7 @@ const Candidate = ( props: CandidateProps) => {
 
 const Candidates = (props: Props) => {
 
-  if (props.siteConfig.mode != SITE_MODE.VOTING) return null;
+  if ((props.siteConfig.mode != SITE_MODE.VOTING) && (props.siteConfig.mode != SITE_MODE.WINNER)) return null;
 
   let activeCandidates = getActiveCandidates(props.siteConfig);
 
