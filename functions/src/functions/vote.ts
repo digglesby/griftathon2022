@@ -24,7 +24,7 @@ const InputValidationRules = {
   'captcha': 'string'
 };
 
-async function nominateCandidate(input: any, context: functions.https.CallableContext) {
+async function vote(input: any, context: functions.https.CallableContext) {
 
   const validator = new Validator(input, InputValidationRules);
   const ip = context.rawRequest.ip;
@@ -149,4 +149,4 @@ async function nominateCandidate(input: any, context: functions.https.CallableCo
   }
 }
 
-export default nominateCandidate;
+export default vote;

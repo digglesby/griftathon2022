@@ -17,7 +17,7 @@ const cloudFunctions = {
   vote:              functions.https
                       .onCall(vote),
   switchMatch:       functions.pubsub
-                      .schedule('*/1 * * * *')
+                      .schedule('*/10 * * * *')
                       .timeZone('America/New_York')
                       .onRun(switchMatch),
 }

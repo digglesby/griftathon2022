@@ -12,7 +12,7 @@ async function archiveOldChatRooms(context: functions.EventContext) {
 
   const currentTime = new Date(context.timestamp);
   //const votingTime = 1000 * 60 * 60 * 24;
-  const votingTime = 1000 * 60 * 1;
+  const votingTime = 1000 * 60 * 10;
 
   const matchOrder = [
     MATCHES.FIRST_ROUND_1,

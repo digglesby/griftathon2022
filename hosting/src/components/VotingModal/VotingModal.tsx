@@ -31,7 +31,9 @@ const NominationModal = (props: Props) => {
     const lastSubmitted = localStorage.getItem('submitted');
     const votedFor = localStorage.getItem('votedFor');
 
-    if ((lastSubmitted) && (lastSubmitted === props.match.match)) {
+    if (props.siteConfig.mode !== SITE_MODE.VOTING) return null;
+
+    if ((lastSubmitted) && (lastSubmitted == props.siteConfig.current_match)) {
       setSubmitted(true);
       setCandidate(votedFor);
     }
@@ -50,6 +52,7 @@ const NominationModal = (props: Props) => {
 
     event.preventDefault();
 
+    if (props.siteConfig.mode !== SITE_MODE.VOTING) return null;
     if (loading) return;
 
     setLoading(true);
@@ -69,7 +72,7 @@ const NominationModal = (props: Props) => {
         captcha: captchaCode
       })
 
-      localStorage.setItem('submitted', props.match.match);
+      localStorage.setItem('submitted', props.siteConfig.current_match);
       localStorage.setItem('votedFor', props.candidate);
 
       setSubmitted(true);
