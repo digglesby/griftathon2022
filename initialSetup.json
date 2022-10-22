@@ -33,7 +33,7 @@
     },
     "kyle": {
       "name": "Kyle Bass",
-      "descriptioN": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor elementum pharetra.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor elementum pharetra.",
       "image": "/images/headshots/KyleBass.jpg"
     },
     "lind": {
