@@ -9,7 +9,7 @@ import sendTweets from '../utils/sendTweets';
  * Switch match
  */
 
-async function archiveOldChatRooms(context: functions.EventContext) {
+async function switchMatch(context: functions.EventContext) {
 
   const currentTime = new Date(context.timestamp);
   //const votingTime = 1000 * 60 * 60 * 24;
@@ -206,4 +206,4 @@ async function archiveOldChatRooms(context: functions.EventContext) {
 
 }
 
-export default archiveOldChatRooms;
+export default switchMatch;

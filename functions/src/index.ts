@@ -16,8 +16,16 @@ const cloudFunctions = {
                       .onCall(nominateCandidate),
   vote:              functions.https
                       .onCall(vote),
-  switchMatch:       functions.pubsub
+  switchMatch:       functions
+                      .runWith({
+                        memory: '4GB',
+                        timeoutSeconds: 540
+                      }).pubsub
                       .schedule('*/10 * * * *')
+                      .timeZone('America/New_York')
+                      .onRun(switchMatch),
+  checkTwitterPoll:  functions.pubsub
+                      .schedule('*/2 * * * *')
                       .timeZone('America/New_York')
                       .onRun(switchMatch),
 }
