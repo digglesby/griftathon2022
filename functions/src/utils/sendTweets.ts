@@ -2,13 +2,16 @@ import TwitterApi from 'twitter-api-v2';
 import * as request from 'request-promise';
 import { db } from '../firebase/admin';
 import { Match, MATCHES, SiteConfig, SITE_MODE } from '../firebase/schema';
+import * as sharp from 'sharp';
 
 async function getImageData(image1Url: string, image2Url: string, backgroundImageUrl: string): Promise<Buffer> {
   //const image1Buffer = (await request(`https://www.griftathon.com${image1Url}`)).data as Buffer;
   //const image2Buffer = (await request(`https://www.griftathon.com${image2Url}`)).data as Buffer;
-  const backgroundBuffer = (await request(`https://www.griftathon.com${backgroundImageUrl}`)).data as Buffer;
+  const backgroundBuffer = (await request(`https://www.griftathon.com${backgroundImageUrl}`)).data;
 
-  return backgroundBuffer;
+  const editedImage = sharp(backgroundBuffer)
+
+  return editedImage.toBuffer();
 }
 
 async function sendTweets(current_match: Match, site_config: SiteConfig): Promise<string> {
