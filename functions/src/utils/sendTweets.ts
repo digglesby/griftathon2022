@@ -8,11 +8,9 @@ import { logger } from 'firebase-functions/v1';
 async function getImageData(image1Url: string, image2Url: string, backgroundImageUrl: string): Promise<Buffer> {
   //const image1Buffer = (await request(`https://www.griftathon.com${image1Url}`)).data as Buffer;
   //const image2Buffer = (await request(`https://www.griftathon.com${image2Url}`)).data as Buffer;
-  const backgroundBuffer = (await request(`https://www.griftathon.com${backgroundImageUrl}`)).data;
+  const backgroundData = await request(`https://www.griftathon.com${backgroundImageUrl}`);
 
-  logger.log(backgroundBuffer)
-
-  const editedImage = sharp(backgroundBuffer);
+  const editedImage = sharp(backgroundData);
 
   const buff = await editedImage.toFormat("png").toBuffer();
 
