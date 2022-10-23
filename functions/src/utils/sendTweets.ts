@@ -3,6 +3,7 @@ import * as request from 'request-promise';
 import { db } from '../firebase/admin';
 import { Match, MATCHES, SiteConfig, SITE_MODE } from '../firebase/schema';
 import * as sharp from 'sharp';
+import { logger } from 'firebase-functions/v1';
 
 async function getImageData(image1Url: string, image2Url: string, backgroundImageUrl: string): Promise<Buffer> {
   //const image1Buffer = (await request(`https://www.griftathon.com${image1Url}`)).data as Buffer;
@@ -11,7 +12,11 @@ async function getImageData(image1Url: string, image2Url: string, backgroundImag
 
   const editedImage = sharp(backgroundBuffer)
 
-  return editedImage.toBuffer();
+  const buff = await editedImage.toFormat("png").toBuffer();
+
+  logger.log(buff);
+
+  return buff;
 }
 
 async function sendTweets(current_match: Match, site_config: SiteConfig): Promise<string> {
