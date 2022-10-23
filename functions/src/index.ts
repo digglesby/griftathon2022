@@ -1,4 +1,5 @@
 import * as functions from "firebase-functions";
+import checkTwitterPoll from "./functions/checkTwitterPoll";
 import nominateCandidate from "./functions/nominateCandidate";
 import switchMatch from "./functions/switchMatch";
 import vote from "./functions/vote";
@@ -27,7 +28,7 @@ const cloudFunctions = {
   checkTwitterPoll:  functions.pubsub
                       .schedule('*/2 * * * *')
                       .timeZone('America/New_York')
-                      .onRun(switchMatch),
+                      .onRun(checkTwitterPoll),
 }
 
 module.exports = cloudFunctions;
