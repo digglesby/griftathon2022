@@ -8,7 +8,7 @@ import { logger } from 'firebase-functions/v1';
 async function getImageData(image1Url: string, image2Url: string, backgroundImageUrl: string): Promise<Buffer> {
   //const image1Buffer = (await request(`https://www.griftathon.com${image1Url}`)).data as Buffer;
   //const image2Buffer = (await request(`https://www.griftathon.com${image2Url}`)).data as Buffer;
-  const backgroundData = await request(`https://www.griftathon.com${backgroundImageUrl}`);
+  const backgroundData = await request({ url: `https://www.griftathon.com${backgroundImageUrl}`, encoding:null });
 
   logger.log(backgroundData);
 
