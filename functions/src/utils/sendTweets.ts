@@ -3,23 +3,35 @@ import * as request from 'request-promise';
 import { db } from '../firebase/admin';
 import { Match, MATCHES, SiteConfig, SITE_MODE } from '../firebase/schema';
 import * as sharp from 'sharp';
-import { logger } from 'firebase-functions/v1';
 
-async function getImageData(image1Url: string, image2Url: string, backgroundImageUrl: string): Promise<Buffer> {
-  //const image1Buffer = (await request(`https://www.griftathon.com${image1Url}`)).data as Buffer;
-  //const image2Buffer = (await request(`https://www.griftathon.com${image2Url}`)).data as Buffer;
-  const backgroundData = await request({ url: `https://www.griftathon.com${backgroundImageUrl}`, encoding:null });
+const hostname = "https://www.griftathon.com"
 
-  logger.log(backgroundData);
+async function getImageData(image1Url: string, image2Url: string): Promise<Buffer> {
+  const fgBuffer = await request({ url: `${hostname}/images/TweetImgOverlay.png`, encoding: null});
+  const pfp1Buffer = await request({ url: `${hostname}${image1Url}`, encoding: null });
+  const pfp2Buffer = await request({ url: `${hostname}${image2Url}`, encoding: null });
 
-  const editedImage = sharp(backgroundData);
+  const pfp1 = await sharp(pfp1Buffer).resize(675,675).grayscale().toFormat("png").toBuffer();
+  const pfp2 = await sharp(pfp2Buffer).resize(675,675).grayscale().toFormat("png").toBuffer();
+
+  const editedImage = sharp({
+    create: {
+      width: 1200,
+      height: 675,
+      channels: 4,
+      background: "#000"
+    }
+  }).composite([
+    { input: pfp1, left: -75, top:0 },
+    { input: pfp2, left: 600, top:0 },
+    { input: fgBuffer, gravity: 'center' }
+  ]);
 
   const buff = await editedImage.toFormat("png").toBuffer();
 
-  logger.log(buff);
-
   return buff;
 }
+
 
 async function sendTweets(current_match: Match, site_config: SiteConfig): Promise<string> {
 
@@ -47,8 +59,7 @@ async function sendTweets(current_match: Match, site_config: SiteConfig): Promis
   const imageId = await rwClient.v1.uploadMedia(
     await getImageData(
       site_config.contestants[current_match.contestant1].image,
-      site_config.contestants[current_match.contestant2].image,
-      "/images/OGImage.png"
+      site_config.contestants[current_match.contestant2].image
     ), 
     {type: 'png'}
     );
@@ -73,7 +84,7 @@ async function sendTweets(current_match: Match, site_config: SiteConfig): Promis
   }
 
   const firstTweetInfo = await rwClient.v2.tweet(
-    `${roundNames[site_config.current_match]}: ${site_config.contestants[current_match.contestant1]} VS ${site_config.contestants[current_match.contestant2]} #GRIFTATHON2022 https://www.griftathon.com`, 
+    `${roundNames[site_config.current_match]}: ${site_config.contestants[current_match.contestant1].name} VS ${site_config.contestants[current_match.contestant2].name} #GRIFTATHON2022 https://www.griftathon.com`, 
     { 
       media: {
         media_ids: [imageId] 
