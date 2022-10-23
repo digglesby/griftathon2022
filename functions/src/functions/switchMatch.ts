@@ -12,8 +12,8 @@ import sendTweets from '../utils/sendTweets';
 async function switchMatch(context: functions.EventContext) {
 
   const currentTime = new Date(context.timestamp);
-  //const votingTime = 1000 * 60 * 60 * 24;
-  const votingTime = 1000 * 60 * 10;
+  const votingTime = (1000 * 60 * 60 * 24) - 30000;
+  //const votingTime = 1000 * 60 * 10;
 
   const matchOrder = [
     MATCHES.FIRST_ROUND_1,

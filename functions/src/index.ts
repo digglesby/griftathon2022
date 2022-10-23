@@ -22,11 +22,11 @@ const cloudFunctions = {
                         memory: '4GB',
                         timeoutSeconds: 540
                       }).pubsub
-                      .schedule('*/10 * * * *')
+                      .schedule('0 0 * * *')
                       .timeZone('America/New_York')
                       .onRun(switchMatch),
   checkTwitterPoll:  functions.pubsub
-                      .schedule('*/2 * * * *')
+                      .schedule('*/5 * * * *')
                       .timeZone('America/New_York')
                       .onRun(checkTwitterPoll),
 }
