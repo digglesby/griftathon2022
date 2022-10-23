@@ -10,7 +10,9 @@ async function getImageData(image1Url: string, image2Url: string, backgroundImag
   //const image2Buffer = (await request(`https://www.griftathon.com${image2Url}`)).data as Buffer;
   const backgroundBuffer = (await request(`https://www.griftathon.com${backgroundImageUrl}`)).data;
 
-  const editedImage = sharp(backgroundBuffer)
+  logger.log(backgroundBuffer)
+
+  const editedImage = sharp(backgroundBuffer);
 
   const buff = await editedImage.toFormat("png").toBuffer();
 
