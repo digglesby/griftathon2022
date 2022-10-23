@@ -138,7 +138,7 @@ const Home = () => {
 
             <div className={styles.atfText}>
               <h1>{ (siteConfig.mode == SITE_MODE.NOMINATION) ? "Nominations now open!" : "GRIFTATHON is back!" }</h1>
-              <p>Back after a year, Grifathon 2022 is here to celibrate the greatest grifts in the China space.</p>
+              <p>Back after a year, GRIFTATHON 2022 is here to celebrate the greatest grifts in the China space.</p>
               
             </div>
 
