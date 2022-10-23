@@ -70,7 +70,7 @@
 }
 
 .atf button, .nomination button {
-  font-family: 'Bebas Neue', cursive;
+  font-family: 'Bebas Neue', sans-serif;
   font-size: 36px;
   border: 0em;
   border-radius: 0em;
@@ -82,7 +82,7 @@
 }
 
 .atf>.text-wrapper h1 {
-  font-family: 'Bebas Neue', cursive;
+  font-family: 'Bebas Neue', sans-serif;
   margin: 0em;
   font-size: 60px;
   font-weight: 400;
@@ -90,7 +90,7 @@
 }
 
 .atf>.text-wrapper p {
-  font-family: 'Bebas Neue', cursive;
+  font-family: 'Bebas Neue', sans-serif;
   text-transform: uppercase;
   margin: 0em;
   font-size: 22px;
@@ -112,12 +112,16 @@
   color: #f2f0f4;
 }
 
+.explainer p {
+  line-height: 1.5em;
+}
+
 .explainer.light {
   background: #252525;
 }
 
 .explainer h1 {
-  font-family: 'Bebas Neue', cursive;
+  font-family: 'Bebas Neue', sans-serif;
   margin: 0em;
   font-size: 40px;
   font-weight: 400;
@@ -163,8 +167,12 @@
   width: 100%;
 }
 
+.whatIsGrift p {
+  line-height: 1.5em;
+}
+
 .whatIsGrift h1 {
-  font-family: 'Bebas Neue', cursive;
+  font-family: 'Bebas Neue', sans-serif;
   margin: 0em;
   font-size: 40px;
   font-weight: 400;
@@ -192,12 +200,13 @@
 .whatIsGrift blockquote>p {
   margin-bottom: 0em;
   margin-top: 0.2em;
-  font-weight: bold;
+  font-weight: normal;
 }
 
 .whatIsGrift blockquote>p>span {
   display: block;
   font-weight: normal;
+  margin-bottom: 10px;
 }
 
 .nomination {
@@ -213,17 +222,26 @@
   background-position: center;
 }
 
+.nomination p {
+  line-height: 1.5em;
+}
+
 .nomination button {
   margin-top: 2em;
 }
 
 .nomination h1 {
-  font-family: 'Bebas Neue', cursive;
+  font-family: 'Bebas Neue', sans-serif;
   margin: 0em;
   font-size: 40px;
   font-weight: 400;
   text-align: center;
   margin-bottom: 0.3em;
+}
+
+.nomination ul>li{
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .atfContainer, .explainerContainer, .whatIsGriftContainer, .nominationContainer {
@@ -235,7 +253,7 @@
 @media only screen and (min-width: 550px) and (max-width: 980px) {
 
   .atf button, .nomination button {
-    font-family: 'Bebas Neue', cursive;
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 40px;
     padding: 0.3em 1em;
     border: 0em;
@@ -287,7 +305,7 @@
 @media only screen and (min-width: 980px) {
 
   .atf button, .nomination button {
-    font-family: 'Bebas Neue', cursive;
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 40px;
     padding: 0.3em 1em;
     border: 0em;

@@ -21,7 +21,7 @@
   top:50%;
   transform: translate(-50%, -50%);
   color: #f2f0f4;
-  font-family: 'Bebas Neue', cursive;
+  font-family: 'Bebas Neue', sans-serif;
   font-weight: 400;
   font-size: 40px;
   margin: 0px;
@@ -128,7 +128,7 @@
   margin: 0em;
   color: #f2f0f4;
   font-size: 26px;
-  font-family: 'Bebas Neue', cursive;
+  font-family: 'Bebas Neue', sans-serif;
   font-weight: 400;
   width: 100%;
   box-sizing: border-box;
@@ -155,7 +155,7 @@
 
 .votingSection>.candidates>.candidate>.shortInfo>h2{
   margin: 0em;
-  font-family: 'Bebas Neue', cursive;
+  font-family: 'Bebas Neue', sans-serif;
   font-weight: 400;
   font-size: 40px;
   padding: 0em 0.4em;
@@ -212,13 +212,13 @@
   flex-direction: column;
   font-size: 22px;
   flex: 1;
-  font-family: 'Bebas Neue', cursive;
+  font-family: 'Bebas Neue', sans-serif;
   font-weight: 400;
 }
 
 .votingSection>.candidates>.candidate>.additionalInfo>ul>li>span {
   font-size: 16px;
-  font-family: 'Bebas Neue', cursive;
+  font-family: 'Bebas Neue', sans-serif;
   color: rgba(255,255,255,0.5);
 }
 

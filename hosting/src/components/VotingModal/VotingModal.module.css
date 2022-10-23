@@ -41,7 +41,7 @@
 }
 
 .modal h1{
-  font-family: 'Bebas Neue', cursive;
+  font-family: 'Bebas Neue', sans-serif;
   margin: 0em;
   font-size: 40px;
   font-weight: 400;
@@ -79,7 +79,7 @@
 }
 
 .modal button {
-  font-family: 'Bebas Neue', cursive;
+  font-family: 'Bebas Neue', sans-serif;
   font-size: 36px;
   border: 0em;
   border-radius: 0em;
@@ -99,7 +99,7 @@
 }
 
 .modal .share-btn {
-  font-family: 'Bebas Neue', cursive;
+  font-family: 'Bebas Neue', sans-serif;
   font-size: 36px;
   border: 0em;
   border-radius: 0em;

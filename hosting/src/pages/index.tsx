@@ -23,7 +23,7 @@ const ExplainerSection = (props: { light?: boolean }) => (
     <div className={styles.explainerContainer}>
 
       <h1>What is GRIFTATHON 2022?</h1>
-      <p>GRIFTATHON is an annual* Twitter poll held to find the grestest Grifter in the China/US political space. From podcasters to scholars, from book sales to atrocity denial, all compete for bragging rights and the coveted "Commander-in-grift" title.</p>
+      <p>GRIFTATHON is an annual* poll held to find the greatest Grifter in the China/U.S. political space. From podcasters to scholars, from book sales to atrocity denial, all compete for bragging rights and the coveted "COMMANDER-IN-GRIFT" title.</p>
       <p>Former nominees include&nbsp;
         <a href='https://podcasts.apple.com/au/podcast/silk-steel-podcast-82-womens-forum-on-misogyny-harassment/id1451115518?i=1000490306781'>Tom Fowdy</a>, <a href='https://www.nbcnews.com/tech/security/how-fake-persona-laid-groundwork-hunter-biden-conspiracy-deluge-n1245387'>Christopher Balding</a>, and <a href='https://www.cnn.com/2021/06/29/politics/solomon-yue-on-white-nationalist/index.html'>Solomon Yue</a>
       </p>
@@ -46,7 +46,7 @@ const ExplainerSection = (props: { light?: boolean }) => (
         </div>
       </aside>
 
-      <sub>* I missed 2021, blame the supply chain</sub>
+      <sub>* I missed 2021, blame COVID</sub>
 
     </div>
 
@@ -68,7 +68,7 @@ const WhatIsSection = () => (
       </blockquote>
 
       <p>
-        In the context of GRIFTATHON a grift is considered any intentional dishonesty or bad faith intrepretation of facts for either personal or ideological gain. Especially if that bad faith interpretation is presented from a position of authority.
+        In the context of GRIFTATHON a "grift" is considered any intentional dishonesty or bad faith interpretation of facts for either personal or ideological gain. Especially if that bad faith interpretation is presented from a position of authority.
       </p>
 
     </div>
@@ -85,15 +85,15 @@ const NominationSection = (props: {openModal: () => void}) => (
       <h1>How do I nominate someone?</h1>
 
       <p>
-        Anyone can be nominated by filling out the form on this wesbite. Nominees will be reviewed and placed into brackets by a team of volunteers and voting will begin December 12th.
+        Anyone can be nominated by filling out the form below. Nominees will be reviewed and placed into brackets by a team of volunteers, and voting will begin December 10th.
       </p>
       <p>
         A good nominee should:
       </p>
       <ul>
-        <li>Be a public figure, or have presented their work in a professional setting.</li>
-        <li>Have an obvious grift or instance of malfeasance during the year.</li>
-        <li>Not work in a direct public capacity for the U.S. or Chinese governments.</li>
+        <li>Be a public figure, or have presented their work in a professional setting</li>
+        <li>Have an obvious grift or instance of malfeasance during the year</li>
+        <li>Not work in a direct public capacity for the U.S. or Chinese governments</li>
       </ul>
       <button onClick={props.openModal}>Submit Nominatation</button>
 
