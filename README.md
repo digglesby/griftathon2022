@@ -13,10 +13,10 @@ This web app has been tested and as of October 2022 worked, however with a set o
 
 The application uses Next.js in static mode and Firebase hosting to serve the front end.
 
-The application uses Firebase cloud functions to serve the four backend cloud functions
+The application uses Firebase Cloud Functions to serve the four backend cloud functions.
 
 
-| Title            | Runs            | Description                                                                                          |
+| Function Title   | Runs            | Description                                                                                          |
 |------------------|-----------------|------------------------------------------------------------------------------------------------------|
 | checkTwitterPoll | Every 5 minutes | Updates /match/{current_match} in Firestore with the new Twitter poll results                        |
 | switchMatch      | Every 2 days    | Saves the match results to /site_config/current and creates the new match entry                      |
