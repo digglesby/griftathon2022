@@ -16,7 +16,7 @@ The application uses Next.js in static mode and Firebase hosting to serve the fr
 The application uses Firebase Cloud Functions to serve the four backend cloud functions.
 
 
-| Function Title   | Runs            | Description                                                                                          |
+| Function Name    | Runs            | Description                                                                                          |
 |------------------|-----------------|------------------------------------------------------------------------------------------------------|
 | checkTwitterPoll | Every 5 minutes | Updates /match/{current_match} in Firestore with the new Twitter poll results                        |
 | switchMatch      | Every 2 days    | Saves the match results to /site_config/current and creates the new match entry                      |
