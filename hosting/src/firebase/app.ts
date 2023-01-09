@@ -3,7 +3,7 @@ import { getFirestore } from 'firebase/firestore';
 import { getFunctions } from 'firebase/functions';
 
 export const app = initializeApp({
-  apiKey: "AIzaSyA6w7M9dyT_56ixjArRMo_k8UoRM1Gif-s",
+  apiKey: "[FIREBASE_API_KEY]",
   authDomain: "griftathon.firebaseapp.com",
   projectId: "griftathon"
 });
